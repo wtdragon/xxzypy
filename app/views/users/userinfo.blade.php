@@ -1,25 +1,29 @@
-<div class='col-md-8'>
-<h2>
-会员中心
-</h2>
+<div class='col-md-10 lbk'>
 		<p>
-		用户名：{{$user->stuname}}
+		<img  src="images/img/w1.png">
 		</p>
-		<p>学生信息:学号：{{$user->stuno}}</p> 
+		<p>昵称：{{$user->stuno}}</p> 
 		  <div class="panel-body">
 		  	
 @if ($kresult === "你还没做过测试" )
 </div>
-    <p> {{ $kresult }}   请点击职业测试进行职业测试</p>
-    <div class='col-md-8'>
-	 <a href="{{ $kurl }}" class="btn btn-default btn1 center" type="button">职业测试</a> 
+    <p>  请点击多元智能或学习风格测试进行测试</p>
+ <div class='col-md-10 lbk'>
+ 	<p>
+ 		 <a href="{{ $kMiurl }}" class="btn btn-default btn1 center" type="button">多元智能评估测试</a> 
+	 </p>
+	 <p>
+	 	 <a href="{{ $kLsiurl }}" class="btn btn-default btn1 center" type="button">学习风格评估测试</a> 
+	 </p>
 	 </div>
+	   
+ 		
 @else
    <p>根据您做的测试，以下为您的测试结果：</p>
-  <iframe style="width: 800px; height: 600px;"
-            src="<?php echo $kresult ?>"
+  <iframe id="iFrame1" name="iFrame1" style="width: 800px;" allowTransparency="true"  style="background-color=transparent" onload="this.height=iFrame1.document.body.scrollHeight"
+            src="<?php echo $kresult ?>"  allowTransparency="true"
             frameBorder="0">
-          </iframe>
+        </iframe>
 @endif
        </div>
 </div>

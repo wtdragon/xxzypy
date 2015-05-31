@@ -49,6 +49,7 @@ Route::get('/collects/specialites', 'App\Controllers\Users\UsersController@speci
 Route::resource('matches', 'App\Controllers\Users\UsersController@matches');
 Route::resource('specialties', 'App\Controllers\Users\UsersController@specialties');
 Route::resource('ktest', 'App\Controllers\Users\KtestController');
+Route::resource('zysp', 'App\Controllers\Users\ZyspController');
 Route::post('collegesearch',[
 		'as'=>'PostSpecialtiysearch',
 		'uses'=>'App\Controllers\College\SearchController@collegesearch'

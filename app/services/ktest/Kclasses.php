@@ -285,7 +285,23 @@ public function getkLsiUrl($userId)
 {
  			
 try{
-$configId = 104;  //lsi
+$configId = 101;  //MI
+ $accountId = 1000001;
+ $yourDomain = "http://localhost:8000/users/ktest"; //change this to your server domain
+ $bounceUrl = "https://api.keystosucceed.cn/setCookieAndBounce.php?returnUrl=$yourDomain";
+ $kuserId=$userId;
+ $kurl = $bounceUrl . urlencode('?accountId='.$accountId.'&userId='.$kuserId.'&configId='.$configId);
+return $kurl;
+}
+catch (Exception $e){
+$this->log($e.getMessage());
+}
+}
+public function getkMiUrl($userId)
+{
+ 			
+try{
+$configId = 100;  //MI
  $accountId = 1000001;
  $yourDomain = "http://localhost:8000/users/ktest"; //change this to your server domain
  $bounceUrl = "https://api.keystosucceed.cn/setCookieAndBounce.php?returnUrl=$yourDomain";

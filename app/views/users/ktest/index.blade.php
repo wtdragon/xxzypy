@@ -9,20 +9,13 @@
         
 
 	</div>
-	<div class='col-md-8'>
-		<h2>
-			测试中心
-		</h2>
-    </div>
-    <div class='col-md-7'>
-		<h3>
-			职业测试：
-		</h3>
-		<p>会员信息：</p>
-		
+	<div class='col-md-10 lbk'>
+		<p>
+		<img  src="../images/img/w1.png">
+		</p>
+		<p>昵称：{{$user->stuno}}</p> 
 		 
-
-          <iframe style="width: 800px; height: 600px;"
+<iframe id="iFrame1" name="iFrame1" style="width: 800px; height: 600px;background-color=transparent" allowTransparency="true"  
             src="<?php echo $fullLoginUrl ?>"
             frameBorder="0">
               <p>Your browser does not support iframes.</p>

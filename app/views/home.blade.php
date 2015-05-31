@@ -2,66 +2,84 @@
 @section('header')
 @stop
 @section('content')
-	<div class="col-md-12 column b1">
-						<img class='img1'  src="images/img/t1.png">
-						<div class="carousel-caption">
-							<h4>
-								九子高校匹配
-							</h4>
-							<p>
-								欢迎来到九子高考志愿匹配网 进行志愿匹配测试请先【注册登录】
-								<a href="{{URL::to('users')}}">点击进入>>></a>			</p>
-						  </div>
+<div class="col-md-12">
+						<img class='img1'  src="images/img/hd.png">
+</div>
+<div class="col-md-12">
+	<div class="col-md-4"> 
+	 <img src="images/img/t1.png" class='imgcenter'>
+	 @if(App::make('authenticator')->getLoggedUser())
+         <p><a href="{{URL::to('users')}}">我的空间</a></p>  
+         <p><a href="{{URL::to('user/logout')}}">登出</a></p> 
+@else
+	 <p>
+		 <img  src="images/img/d1.png">
+	 </p>
+     <div class="panel-body">
+                {{Form::open(array('url' => URL::action("Jacopo\Authentication\Controllers\AuthController@postClientLogin"), 'method' => 'post') )}}
+                <div class="row">
+                    <div class="col-xs-8 col-sm-8 col-md-8">
+                        <div class="form-group">
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                {{Form::email('email', '', ['id' => 'email', 'class' => 'form-control', 'placeholder' => '邮件地址', 'required', 'autocomplete' => 'off'])}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8 col-sm-8 col-md-8">
+                        <div class="form-group">
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                {{Form::password('password', ['id' => 'password', 'class' => 'form-control', 'placeholder' => '密码', 'required', 'autocomplete' => 'off'])}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{Form::label('remember','记住我')}}
+                {{Form::checkbox('remember')}}
+                <input type="submit" value="登录" class="btn btn-info">
+                {{Form::close()}}
+        <div class="row">
+            <div class="col-xs-8 col-sm-8 col-md-8 margin-top-10">
+            	<a href="{{URL::action('Jacopo\Authentication\Controllers\UserController@signup')}}" class="btn  disabled" role="button"><i class="fa fa-sign-in"></i> 注册</a>|
+        {{link_to_action('Jacopo\Authentication\Controllers\AuthController@getReminder','忘记密码')}} </div>
+        </div>
+        </div>
+            <p>
+            	<strong>注册/登录</strong>之后，可进行我们   <p>为小朋友们准备的测评 </p>
+            </p>
+            @endif	
+        </div>
+		<div class="col-md-4"> 
+				<img src="images/img/t2.png">
+		    <p>
+		    	<img  src="images/img/h1.png">
+		    </p>
+			<p>
+				最好的教育，就是帮助每一个孩子，去找到自己的生命价值：从事着自己喜
+欢的事情，过着自己想要的生活。每个孩子都有自己的与生俱来的某种东西，这部分是孩子的根基，才华和技能则是生长在其上的枝条。“知识和技能”只有长在“性格”之上的，这才能构成统一的“内在”，因此每个孩子都有属于自己的教育方式。
+</p>
+<p>
+所以，<strong>请多做一点，多了解一点，因为你所改变的，是孩子的命运。</strong>
+</p>
 		</div>
-		</div>
-	<div class="row clearfix">
-	    <div class="col-md-5ths text-center"> 
-				<img src="images/img/colleges.jpg" class='imgcenter'>
+		<div class="col-md-4 text-right"> 
+				<img alt="150x150" src="images/img/t3.png">
+			 <p>
+		    	<img  src="images/img/l1.png">
+		    </p>
+		     <p>
+		    	<img  src="images/img/l2.png">
+		    </p>
+		     <p>
+		    	<img  src="images/img/l3.png">
+		    </p>
+		    
 			
-				<a href="{{URL::to('colleges/articles')}}" class="acenter"><h2>院校资讯</h2></a>
-			
-			<p class="t1">
-				九子高考志愿匹配网为您提供权威的、全面的职业院校新闻资讯和招生信息。为您对于院校及专业的情况了解进行科学系统的导向。	</p>
-			
 		</div>
-		<div class="col-md-5ths text-center"> 
-				<img alt="150x150" src="images/img/matches.jpg">
-		 
-				<a href="{{URL::to('matches')}}" class="acenter"><h2>志愿匹配</h2></a>
-		 
-			<p class="t1">
-				注册登录之后，您可以进行我们给您提供的一套权威的职业测评，为您推荐职业匹配，以便于您进行职业筛选和专业比较，对合适的选择可以收藏并记录。	</p>
-		
-		</div>
-		<div class="col-md-5ths text-center"> 
-				<img alt="150x150" src="images/img/colleges_s.jpg">
-			<a href="{{URL::to('colleges/search')}}" class="acenter"><h2>
-				院校搜索
-			</h2></a>
-			<p class="t1">
-				九子高考志愿匹配网为您提供全面的院校数据搜索功能，以便于您可以根据搜索结果，查询所需要的院校信息。
-		</p>
-			
-		</div>
-		<div class="col-md-5ths text-center"> 
-			<img alt="150x150" src="images/img/specialties.jpg">
-			<a href="{{URL::to('specialties')}}" class="acenter"><h2>
-				专业搜索
-			</h2></a>
-			<p class="t1">
-				九子高考志愿匹配网为您提供全面的专业数据库搜索功能，以便于您可以根据搜索结果，查询所需要的专业信息。			</p>
-			
-		</div>
-		<div class="col-md-5ths text-center"> 
-			<img alt="150x150" src="images/img/training.jpg" class="acenter">
-			<a href="{{URL::to('trainings')}}" class="acenter"><h2>
-				培训信息
-			</h2></a>
-			<p class="t1">
-				根据我们给您做出的志愿匹配测评结果，为您提供适合您自身的职业培训课程信息和培训课程推荐。
-			</p>
-		</div>
- 
+ 	</div>
 @stop
 @section('bootor')
 @stop

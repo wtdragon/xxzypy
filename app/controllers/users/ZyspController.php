@@ -12,86 +12,18 @@ use App\Services\Ktest\Kclasses;
 use App\Services\Sclass\JsonArrayHandle;
 use SoapBox\Formatter\Formatter;
 
-class UsersController extends \BaseController {
+class ZyspController extends \BaseController {
 		
 	
  
 
 	public function index()
 {
-    // $loggeduser=\App::make('authenticator')->getLoggedUser();
-    // $authentication = \App::make('authenticator');
-	// var_dump($loggeduser->permissions);
-	// var_dump(array_key_exists('_teacher',$loggeduser->permissions));
-	// var_dump(array_key_exists('_student',$loggeduser->permissions));
-   //  if($loggeduser)
-   //   {
-      	  $loggeduser=\App::make('authenticator')->getLoggedUser();
-		  if (array_key_exists('_student',$loggeduser->permissions))
-		  { //var_dump($loginstudent);
-	      $student=Student::whereraw("user_id = $loggeduser->id")->first();  
-		  $ktest=Kresult::where('kuser_id','=',$student->kuser_id); 
-		  //$configId = 104;  //lsi
-          //$accountId = 1000001;
-          //$yourDomain = "http://localhost:8000/users/ktest"; //change this to your server domain
-          //$bounceUrl = "https://api.keystosucceed.cn/setCookieAndBounce.php?returnUrl=$yourDomain";
-          $kclass=new Kclasses("singapore");
-          $kuserId=$student->kuser_id;
-          //$kurl = $bounceUrl . urlencode('?accountId='.$accountId.'&userId='.$kuserId.'&configId='.$configId);
-		 $kLsiurl=$kclass->getkLsiUrl($kuserId);
-		  $kMiurl=$kclass->getkMiUrl($kuserId);
-         if ($ktest->count())
-	       {
-          $kresult=$kclass->getkResultUrl($kuserId);
-		//$ch = curl_init();
-//$timeout = 5;
-//curl_setopt ($ch, CURLOPT_URL, $kurl);
-//curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-//curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-//$file_contents = curl_exec($ch); 
-		// $kresult=$file_contents; 
-        //$kresult=$kurl;
-		//   $formatter = Formatter::make($result, Formatter::JSON);
-		  // $jstoarray=new JsonArrayHandle;
-		 //  $array = $formatter->toArray();
-		 //  $finalresult=$jstoarray->objectToArray($array); 
-		 //  $finalresult2=json_decode($result);
-		 //   $zhuanye=array_keys(get_object_vars($finalresult2));
-		    
-		//	foreach($finalresult2 as $mydata)
+	      
+		return \View::make('users.zysp.index');
+						                
 
-  //  {   
-    //	$zhiye[]=array_keys(get_object_vars($mydata->Careers)); 
-		//var_dump($zhiye);
-        
-  //  }    
-			 
-			
-			 }   
-		else {
-			$kresult="你还没做过测试";
-		  //change this to the humanesources userId you have created with the api
-		}
-       	
-		return \View::make('users.index')->with('user',$student)
-		                                 ->with('kLsiurl',$kLsiurl)
-										  ->with('kMiurl',$kMiurl)
-						                 ->with('kresult',$kresult);
-						                 }
-elseif(array_key_exists('_teacher',$loggeduser->permissions)){
-	return Redirect::to('gxadmin');
 }
-else{
-	return "not have permissions ";
-}
-
-		 //  }
-	//	else {
-		 //	$logged='not login';
-		   //	return \View::make('users.login');
-		//}//
-		
-	}
  
 	/**
 	 * Store a newly created resource in storage.

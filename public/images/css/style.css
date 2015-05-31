@@ -16,6 +16,10 @@ margin-top:1px;
     width: 70%;
 	
 }
+.bordered .highlight {
+  border: 10px solid orange;
+  background: transparent;
+}
 .b1 { 
 	padding:0;
 }
@@ -34,9 +38,9 @@ margin-top:1px;
 }
 .center {
   width: auto;
-  display: table;
   margin-left: auto;
   margin-right: auto;
+     box-shadow: 0 0 30px #f49800;
 }
 .dcenter{
 	  float: none;  
@@ -149,6 +153,12 @@ font-size:0
 	 margin-bottom: 10px;
 	
 }
+.lbk{
+	background-image: url('/images/img/lbk.png');
+	height:682px;
+	padding-right: 15px;
+	
+}
 .bottom{
 	 margin-top: 10px;
 	
@@ -170,8 +180,8 @@ font-size:0
 	text-color:#fffff;
 }
 .navbar-default {
-  background-color: #F49800;
-  border-color: #d94131;
+  background-color: #00b7ef;
+  border-color: #00b7ef;
   margin-bottom:0px;
 }
 .navbar-default .navbar-brand {
@@ -185,7 +195,7 @@ font-size:0
 }
 .navbar-default .navbar-nav > li > a {
   color: #ffffff;
-  margin-top:30%;
+  margin-top:10%;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
   color: #f49800;
