@@ -1,7 +1,16 @@
 <div class='col-md-10 lbk'>
-		<ol>
-		   <li>
-                        <a href="{{ URL::to('/users/') }}"> <img  src="../images/img/lc1.png"></a>
-           </li>
-		</ol>
+	<div class="row top bottom marginlr">
+		<img  src="../images/img/spfl.png">
+	</div>
+	<div class="row top bottom marginlr">
+	    @foreach ($klists as $klist)
+       <div class="col-md-6">
+        <a href="#">
+  
+          <img  src="{{ $klist->listimg   }}">
+     
+         </a>
+        </div>
+         @endforeach
+         </div>
 </div>

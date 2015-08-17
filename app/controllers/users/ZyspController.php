@@ -2,7 +2,7 @@
 
 namespace App\Controllers\Users;
  
-use Area,City,College,Specialty,Province,UserProfile,ProfileField,Zylb,Ktest,Kresult,Flzhuanye,Student;
+use Area,City,College,Specialty,Province,Kcms_video,Kcms_list,UserProfile,ProfileField,Zylb,Ktest,Kresult,Flzhuanye,Student;
 use Input, Notification, Redirect, Sentry, Str;
 
 use App\Services\Validators\PageValidator;
@@ -19,8 +19,10 @@ class ZyspController extends \BaseController {
 
 	public function index()
 {
-	      
-		return \View::make('users.zysp.index');
+	    
+		$klists=Kcms_list::where('listid1','=',5)->get();  
+		return \View::make('users.zysp.index')
+		                   ->with('klists',$klists);
 						                
 
 }

@@ -58,7 +58,7 @@
 		<div class="col-md-8">
 		@section('header.nav')	 
 		<nav class="navbar navbar-default btn-group1" role="navigation">
-		 <ul class="nav navbar-nav ">
+		 <ul class="nav navbar-nav">
 		 <li><a href="{{URL::to('users')}}" ><img alt="150x150" src="../images/img/tst1.png"></a></li> 
 		 <li><a href="{{URL::to('users')}}" ><img alt="150x150" src="../images/img/my1.png"></a></li>
 		 <li><a href="/ " ><img alt="150x150" src="../images/img/bk1.png"></a></li>
