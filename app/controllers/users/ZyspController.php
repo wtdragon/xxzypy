@@ -20,7 +20,7 @@ class ZyspController extends \BaseController {
 	public function index()
 {
 	    
-		$klists=Kcms_list::where('listid1','=',5)->get();  
+		$klists=Kcms_list::where('listid1','=',5)->orderBy('listimg')->get();  
 		return \View::make('users.zysp.index')
 		                   ->with('klists',$klists);
 						                
@@ -64,6 +64,28 @@ class ZyspController extends \BaseController {
 		$schools = Specialty::search($specialty)->paginate(20);
 		$provinces=Province::All();
 		return \View::make('users.collects.colleges');
+	}
+		 public function splist($id)
+	{
+		//
+		//
+
+ 
+		$klist = Kcms_list::where('listid1','=',$id)->lists('listid');
+		//var_dump($klist);
+		$kvideolists=Kcms_video::whereIn('listid',$klist)->get();
+  //var_dump($kvideolists);
+		return \View::make('users.zysp.videolist')
+		                    ->with('kvideolists',$kvideolists);
+	}
+	 public function showvideo($id)
+	{
+		 
+		$video=Kcms_video::where('listid','=',$id)->first();
+		//var_dump($video);
+  //var_dump($kvideolists);
+		return \View::make('users.zysp.showvideo')
+		                    ->with('video',$video);
 	}
 	 public function others()
 	{

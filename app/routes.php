@@ -58,6 +58,14 @@ Route::get('spefilter/{filter}',[
 		'as'=>'Specfilter',
 		'uses'=>'App\Controllers\Users\UsersController@specfilter'
 	]);
+Route::get('splist/{filter}',[
+		'as'=>'splist',
+		'uses'=>'App\Controllers\Users\ZyspController@splist'
+	]);	
+Route::get('showvideo/{filter}',[
+		'as'=>'showvideo',
+		'uses'=>'App\Controllers\Users\ZyspController@showvideo'
+	]);		
 Route::get('colfilter/{filter}',[
 		'as'=>'Colfilter',
 		'uses'=>'App\Controllers\Users\UsersController@colfilter'

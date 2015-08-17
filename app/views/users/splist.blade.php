@@ -5,7 +5,7 @@
 	<div class="row top bottom marginlr">
 	    @foreach ($klists as $klist)
        <div class="col-md-6">
-        <a href="#">
+         <a href="{{ URL::route('splist',$klist->listid) }}">
   
           <img  src="{{ $klist->listimg   }}">
      
